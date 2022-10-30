@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Media 1</title>
+    <style>
+        @media print {
+            body {
+                font-size: 10pt;
+                color: #f00;
+            }
+        }
+
+        @media handheld {
+            body {
+                font-size: 12pt;
+                color: #00f;
+            }
+        }
+
+        @media screen {
+            body {
+                font-size: 13pt;
+                color: #0f0;
+            }
+        }
+
+
+    </style>
+
+</head>
+<body>
+<p>
+    print-> color:red, font-size: 10pt
+</p>
+<p>
+    handheld-> color:blue, font-size: 12pt
+</p>
+<p>
+    screen-> color: green, font-size: 10pt
+</p>
+</body>
+</html>

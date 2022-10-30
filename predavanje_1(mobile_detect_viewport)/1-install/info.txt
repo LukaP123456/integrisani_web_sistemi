@@ -1,0 +1,32 @@
+FIREFOX:
+https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher/
+
+CHROME:
+https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg
+
+EDGE:
+https://microsoftedge.microsoft.com/addons/detail/useragent-switcher-and-m/cnjkedgepfdpdbnepgmajmmjdjkjnifa
+
+1. Install addon
+2. Activate addon if it is not activated
+3. Choose mobile device
+4. Test it with:
+
+www.subotica.com
+www.blic.rs
+www.facebook.com
+www.index.hu
+www.gradsubotica.co.rs
+www.google.com
+www.gmail.com
+
+
+
+
+
+
+
+
+
+
+

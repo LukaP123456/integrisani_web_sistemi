@@ -1,0 +1,6 @@
+1. login at ngrok.com
+2. copy your authtoken
+3. ngrok authtoken ypur tokne
+4. ngrok http 80
+5. http://localhost:4040/
+
