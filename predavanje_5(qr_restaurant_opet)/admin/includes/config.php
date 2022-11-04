@@ -36,8 +36,9 @@ $messages = [
     'menus.php' => [
         1 => ['style' => 'danger', 'text' =>'Please, insert required fields.'],
         2 => ['style' => 'danger', 'text' =>'Category with this name already exists. Insert another one.'],
-        3 => ['style' => 'success', 'text' => 'Error occurs during image upload. Please try again and upload only JPG images.'],
-        4 => ['style' => 'success', 'text' => 'Something went wrong during image upload. Please try again.'],
-        5 => ['style' => 'success', 'text' => 'Menu created successfully.']
+        3 => ['style' => 'danger', 'text' => 'Error occurs during image upload. Please try again and upload only JPG images.'],
+        4 => ['style' => 'danger', 'text' => 'Something went wrong during image upload. Please try again.'],
+        5 => ['style' => 'success', 'text' => 'Menu created successfully, but some values where not inserted.'],
+        6 => ['style' => 'success', 'text' => 'Menu created successfully.']
     ]
 ];

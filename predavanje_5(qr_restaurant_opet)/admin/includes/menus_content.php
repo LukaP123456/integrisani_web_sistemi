@@ -43,7 +43,7 @@
             </div>
             <div class="col-md-2 required">
                 <label for="price" class="form-label">Price</label>
-                <input type="text" class="form-control" id="price" name="price[]">
+                <input type="number" min="1" max="10000" class="form-control" id="price" name="price[]">
             </div>
             <div class="col-md-2 pt-4">
                 <button type="button" class="btn btn-primary addPrice">

@@ -18,10 +18,10 @@ $size = array_map(function ($size) use ($connection) {
 
 $newFileName = "";
 
-if (empty($name) or empty($id_menu_category)) {
+if (empty($name) or empty($id_menu_category) or empty($price[0]) or empty($size[0])) {
     header("location:menus.php?m=1");
     exit();
-} else if (menuExists($name, $connection)) {
+} else if (dataExists('id_menu', 'menus', ['name'], [$name], $connection)) {
     header("location:menus.php?m=2");
     exit();
 } elseif (!empty($image['name']) and !imageReady($image)) {
@@ -39,8 +39,23 @@ if (empty($name) or empty($id_menu_category)) {
         }
     }
     $id_menu = insertIntoMenusTable($name, $id_menu_category, $connection, $description, $newFileName);
-    // need to implement insert into prices table
-    // check if both data exists in every iteration
-    header("location:menus.php?m=5");
+
+    $all_values_correct = true;
+
+    for ($i = 0; $i < count($price); $i++) {
+        if (!empty($price[$i]) or !empty($size[$i] and !dataExists('id_price', 'prices', ['id_menu', 'size'], [$id_menu, $size[$i]], $connection))) {
+            insertIntoPricesTable($id_menu, $size[$i], $price[$i], $connection);
+        } else {
+            $all_values_correct = false;
+        }
+    }
+    if (!$all_values_correct) {
+        header("location:menus.php?m=5");
+        exit();
+    }
+
+    header("location:menus.php?m=6");
     exit();
+
+
 }

@@ -64,11 +64,18 @@ function insertIntoMenuCategoriesTable(string $name, mysqli $connection): void
  * @param string $image
  * @return int
  */
-function insertIntoMenusTable(string $name, int $id_menu_category, mysqli $connection, string $description="", string $image=""):int {
+function insertIntoMenusTable(string $name, int $id_menu_category, mysqli $connection, string $description = "", string $image = ""): int
+{
 
     $sql = "INSERT INTO menus(id_menu_category, name, description, image) VALUES ($id_menu_category,'$name','$description','$image')";
     mysqli_query($connection, $sql) or die(mysqli_error($connection));
     return (int)mysqli_insert_id($connection);
+}
+
+function insertIntoPricesTable(int $id_menu, string $size, int $price, mysqli $connection): void
+{
+    $sql = "INSERT INTO prices(id_menu, size, price) VALUES ($id_menu,$size,'$price')";
+    mysqli_query($connection, $sql) or die(mysqli_error($connection));
 }
 
 
@@ -95,9 +102,18 @@ function menuCategoryExists(string $name, mysqli $connection): bool
  * @param mysqli $connection
  * @return bool
  */
-function dataExists(string $selectField, string $selectTable, string $whereField, string $whereValue, mysqli $connection): bool
+function dataExists(string $selectField, string $selectTable, array $whereFields, array $whereValues, mysqli $connection): bool
 {
-    $sql = "SELECT $selectField FROM $selectTable WHERE $whereField = '$whereValue'";
+    $sql = "SELECT $selectField FROM $selectTable ";
+
+    $where = "WHERE $whereFields[0] = '$whereValues[0]'";
+
+    for ($i = 1; $i < count($whereFields); $i++) {
+        $where .= " AND $whereFields[$i] = '$whereValues[$i]'";
+    }
+
+    $sql .= $where;
+
     $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
 
     return mysqli_num_rows($result) > 0 ? true : false;

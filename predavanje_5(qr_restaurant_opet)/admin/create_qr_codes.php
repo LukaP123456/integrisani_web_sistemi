@@ -8,7 +8,7 @@ $number = (int)trim($_POST['number']);
 if (empty($number)) {
     header("location:qr_codes.php?m=1");
     exit();
-} else if (dataExists('id_restaurant_table', 'restaurant_tables', 'number', $number,$connection)) {
+} else if (dataExists('id_restaurant_table', 'restaurant_tables', ['number'], [$number],$connection)) {
     header("location:qr_codes.php?m=2");
     exit();
 } else {
