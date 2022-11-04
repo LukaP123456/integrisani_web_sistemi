@@ -2,9 +2,14 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+<<<<<<< HEAD
       <excludeFolder url="file://$MODULE_DIR$/predavanje_4(qr_restaurant_baza)/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/predavanje_4(qr_restaurant_baza)/vendor/chillerlan/php-settings-container" />
       <excludeFolder url="file://$MODULE_DIR$/predavanje_4(qr_restaurant_baza)/vendor/chillerlan/php-qrcode" />
+=======
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+>>>>>>> bcfce9c1c34e7f0003f6ec1040dcf5a76961525d
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
