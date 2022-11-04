@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/predavanje_4(qr_restaurant_baza)/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/predavanje_4(qr_restaurant_baza)/vendor/chillerlan/php-settings-container" />
+      <excludeFolder url="file://$MODULE_DIR$/predavanje_4(qr_restaurant_baza)/vendor/chillerlan/php-qrcode" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
