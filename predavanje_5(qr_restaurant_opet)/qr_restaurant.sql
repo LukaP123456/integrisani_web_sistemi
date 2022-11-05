@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2022 at 08:13 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Nov 05, 2022 at 04:27 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,6 +36,13 @@ CREATE TABLE `menus` (
   `date_time` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `menus`
+--
+
+INSERT INTO `menus` (`id_menu`, `id_menu_category`, `name`, `description`, `image`, `date_time`) VALUES
+(1, 1, 'vts2', 'asdasdasdwdsdadwdasda', '1667569314-1-32.jpg', '2022-11-04 14:41:54');
+
 -- --------------------------------------------------------
 
 --
@@ -53,10 +60,9 @@ CREATE TABLE `menu_categories` (
 --
 
 INSERT INTO `menu_categories` (`id_menu_category`, `name`, `date_time`) VALUES
-(1, 'Sweets', '2022-11-03 22:20:18'),
-(2, 'Beers', '2022-11-03 18:51:23'),
-(3, 'Grill', '2022-11-03 20:25:03'),
-(4, 'Fried chicken', '2022-11-03 20:26:17');
+(1, 'Grill', '2022-11-04 12:41:43'),
+(2, 'rrr', '2022-11-04 12:50:36'),
+(3, 'ewerwerwer', '2022-11-04 12:50:42');
 
 -- --------------------------------------------------------
 
@@ -111,11 +117,23 @@ CREATE TABLE `prices` (
 CREATE TABLE `qr_codes` (
   `id_qr_code` int(11) NOT NULL,
   `id_restaurant_table` int(11) DEFAULT NULL,
-  `url` varchar(64) NOT NULL,
+  `url` varchar(128) NOT NULL,
   `file_name` varchar(48) NOT NULL,
   `token` varchar(40) NOT NULL,
   `date_time` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `qr_codes`
+--
+
+INSERT INTO `qr_codes` (`id_qr_code`, `id_restaurant_table`, `url`, `file_name`, `token`, `date_time`) VALUES
+(1, 1, 'http://localhost/iws/task3/scan.php?t=b32536939f30030fb838abf74cdb59118f4c481d', 'code_28ca16b9345ff3f0eba7857f0fcc8aec.png', 'b32536939f30030fb838abf74cdb59118f4c481d', '2022-11-04 11:48:25'),
+(2, 2, 'http://localhost/iws/task3/scan.php?t=35e68f11bd798add91b1c26c803542d704fccd0b', 'code_c5d2758cfc441a0cf38fc3c919815f7a.png', '35e68f11bd798add91b1c26c803542d704fccd0b', '2022-11-04 11:49:32'),
+(3, 3, 'http://localhost/INTEGRISANI_WEB_SISTEMI/predavanje_5(qr_restaurant_opet)scan.php?t=a8f0978421aabee4ce4ff5c68021e0d3666647cc', 'code_700d3be2af32ebcfe2ba408a3b8077d4.png', 'a8f0978421aabee4ce4ff5c68021e0d3666647cc', '2022-11-04 11:50:23'),
+(4, 4, 'http://localhost/INTEGRISANI_WEB_SISTEMI/predavanje_5(qr_restaurant_opet)scan.php?t=2d832c4955f2249ee06112a0614c9a38717182f2', 'code_4a61b568d360e5766a8ab95091421e65.png', '2d832c4955f2249ee06112a0614c9a38717182f2', '2022-11-04 12:34:34'),
+(5, 5, 'http://localhost/INTEGRISANI_WEB_SISTEMI/predavanje_5(qr_restaurant_opet)scan.php?t=826750fc9da1f916c11a4525441d155a413d4752', 'code_f269ed4cdf689ab4158a128cbd38c772.png', '826750fc9da1f916c11a4525441d155a413d4752', '2022-11-04 12:34:42'),
+(6, 6, 'http://localhost/INTEGRISANI_WEB_SISTEMI/predavanje_5(qr_restaurant_opet)scan.php?t=9bc48f76dc03f284d4e9be59c3e269db4756c060', 'code_ffd88ab1e17f3312208016a1fef1e300.png', '9bc48f76dc03f284d4e9be59c3e269db4756c060', '2022-11-04 12:35:21');
 
 -- --------------------------------------------------------
 
@@ -128,6 +146,18 @@ CREATE TABLE `restaurant_tables` (
   `number` smallint(6) NOT NULL,
   `date_time` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `restaurant_tables`
+--
+
+INSERT INTO `restaurant_tables` (`id_restaurant_table`, `number`, `date_time`) VALUES
+(1, 123, '2022-11-04 11:48:25'),
+(2, 111, '2022-11-04 11:49:32'),
+(3, 444, '2022-11-04 11:50:23'),
+(4, 22, '2022-11-04 12:34:34'),
+(5, 1, '2022-11-04 12:34:42'),
+(6, 33, '2022-11-04 12:35:21');
 
 -- --------------------------------------------------------
 
@@ -275,13 +305,13 @@ ALTER TABLE `waiter_notifications`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `menu_categories`
 --
 ALTER TABLE `menu_categories`
-  MODIFY `id_menu_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_menu_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -305,13 +335,13 @@ ALTER TABLE `prices`
 -- AUTO_INCREMENT for table `qr_codes`
 --
 ALTER TABLE `qr_codes`
-  MODIFY `id_qr_code` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_qr_code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `restaurant_tables`
 --
 ALTER TABLE `restaurant_tables`
-  MODIFY `id_restaurant_table` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_restaurant_table` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `statistics`
