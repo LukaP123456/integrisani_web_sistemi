@@ -74,7 +74,7 @@ function insertIntoMenusTable(string $name, int $id_menu_category, mysqli $conne
 
 function insertIntoPricesTable(int $id_menu, string $size, int $price, mysqli $connection): void
 {
-    $sql = "INSERT INTO prices(id_menu, size, price) VALUES ($id_menu,$size,'$price')";
+    $sql = "INSERT INTO prices(id_menu, size, price) VALUES ($id_menu,'$size',$price)";
     mysqli_query($connection, $sql) or die(mysqli_error($connection));
 }
 
