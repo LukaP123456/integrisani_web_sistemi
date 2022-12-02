@@ -25,7 +25,7 @@
         if (isset($_POST['submit'])) {
             $name = $_POST['name'];
 
-            $url = "http://localhost/INTEGRISANI_WEB_SISTEMI/predavanje_6(API)/Api1/api" . $name;
+            $url = "http://localhost/inteGRISANI_WEB_SISTEMI/predavanje_6(API)/Api1/api/" . $name;
 
             // https://www.php.net/manual/en/intro.curl.php
 
