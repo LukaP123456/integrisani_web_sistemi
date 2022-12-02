@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteBase /iws/04/api2/
+RewriteRule . index.php

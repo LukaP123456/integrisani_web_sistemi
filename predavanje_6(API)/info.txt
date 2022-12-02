@@ -1,0 +1,9 @@
+https://www.postman.com/downloads/postman-agent/
+
+https://code.tutsplus.com/tutorials/how-to-build-a-simple-rest-api-in-php--cms-37000
+https://www.codeofaninja.com/create-simple-rest-api-in-php/
+https://www.allphptricks.com/create-and-consume-simple-rest-api-in-php/
+
+https://github.com/daveh/php-rest-api 
+
+https://www.bluehost.com/help/article/url-redirect-rewrite-using-the-htaccess-file
