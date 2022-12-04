@@ -9,6 +9,14 @@
 </head>
 <body>
 
+<?php
+//2.
+if (isset($_GET['e'])){
+    echo "<p> Molim vas popunite polja i pritisnite taster </p>";
+}
+
+?>
+
 <form method="post" action="create_code.php">
 
     <label for="text">Text: </label>

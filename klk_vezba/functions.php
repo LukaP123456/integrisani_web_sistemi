@@ -1,4 +1,20 @@
 <?php
+
+function insertIntoScanLog($id_qr_code, $http_user_agent, $http_accept, $device_type, $ip_address, $connection)
+{
+    $sql = "INSERT INTO scan_log(id_qr_code,http_user_agent,http_accept,device_type,date_time,ip_address	) 
+            VALUES ('$id_qr_code','$http_user_agent','$http_accept','$device_type',now(),'$ip_address')";
+    mysqli_query($connection, $sql) or die(mysqli_error($connection));
+}
+
+function insertIntoError($hash, $id, $connection)
+{
+    $sql = "INSERT INTO error_log(id,hash,date_time) VALUES ('$id','$hash',now())";
+    mysqli_query($connection, $sql) or die(mysqli_error($connection));
+    echo "No valid data";
+}
+
+
 /**
  * Function detects ip address of the request.
  * It returns valid ip address or unknown word.
@@ -31,7 +47,7 @@ function getIpAddress(): string
 function getQrData(mysqli $connection): array
 {
     $data = [];
-    $sql = "SELECT file_name, title FROM qr_code";
+    $sql = "SELECT text,image,date_time_created FROM qr_code order by text asc";
     $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
 
     if (mysqli_num_rows($result) > 0) {
@@ -39,6 +55,7 @@ function getQrData(mysqli $connection): array
             $data[] = $row;
         }
     }
+    sort($data);
     return $data;
 }
 
@@ -49,9 +66,9 @@ function getQrData(mysqli $connection): array
  * @param mysqli $connection
  * @return int|false
  */
-function codeExists(int $code, mysqli $connection): int|false
+function codeExists($hash, $id, mysqli $connection): int|false
 {
-    $sql = "SELECT id_qr_code FROM qr_code WHERE code = '$code' LIMIT 0,1";
+    $sql = "SELECT id_qr_code FROM qr_code WHERE hash = '$hash' and id_qr_code='$id'";
     $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
 
     if (mysqli_num_rows($result) > 0) {
