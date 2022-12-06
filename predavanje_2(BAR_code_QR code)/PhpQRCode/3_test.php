@@ -15,7 +15,7 @@ the buffer contents.
 
 ob_start();
 
-echo "Hello ";
+echo "Luka ";
 
 $out1 = ob_get_contents();
 
@@ -26,6 +26,3 @@ $out2 = ob_get_contents();
 ob_end_clean();
 
 var_dump($out1, $out2);
-
-
-?>

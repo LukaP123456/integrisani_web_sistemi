@@ -1,12 +1,12 @@
 <?php
 
 var_dump($_SERVER);
-$accept = "";
-$user_agent = "";
-$accept_charset = "";
-$accept_language = "";
-$x_wap_profile = "";
-$profile = "";
+$accept = "empty";
+$user_agent = "empty";
+$accept_charset = "empty";
+$accept_language = "empty";
+$x_wap_profile = "empty";
+$profile = "empty";
 
 if (isset($_SERVER["HTTP_ACCEPT"]))
     $accept = $_SERVER["HTTP_ACCEPT"];
