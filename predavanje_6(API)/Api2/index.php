@@ -24,7 +24,7 @@ if (!$position) {
 
 $id = $parts[$position + 1] ?? null;
 
-$database = new Database("localhost", "product_db", "root", "");
+$database = new Database("localhost", "product_db", "root", "root");
 
 $gateway = new ProductGateway($database);
 
