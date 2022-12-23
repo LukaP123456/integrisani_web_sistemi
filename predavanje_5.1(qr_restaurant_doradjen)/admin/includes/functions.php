@@ -72,7 +72,8 @@ function insertIntoMenuCategoriesTable(string $name, mysqli $connection): void
  * @param string $image
  * @return int
  */
-function insertIntoMenusTable(string $name, int $id_menu_category, mysqli $connection, string $description="", string $image=""):int {
+function insertIntoMenusTable(string $name, int $id_menu_category, mysqli $connection, string $description = "", string $image = ""): int
+{
 
     $sql = "INSERT INTO menus(id_menu_category, name, description, image) VALUES ($id_menu_category,'$name','$description','$image')";
     mysqli_query($connection, $sql) or die(mysqli_error($connection));
@@ -80,7 +81,8 @@ function insertIntoMenusTable(string $name, int $id_menu_category, mysqli $conne
 }
 
 
-function insertIntoPricesTable (int $id_menu, string $size, int $price , mysqli $connection):void {
+function insertIntoPricesTable(int $id_menu, string $size, int $price, mysqli $connection): void
+{
     $sql = "INSERT INTO prices(id_menu, size, price) VALUES ($id_menu,'$size', $price)";
     mysqli_query($connection, $sql) or die(mysqli_error($connection));
 }
@@ -123,7 +125,7 @@ function dataExists(string $selectField, string $selectTable, array $whereFields
 
     $where = " WHERE $whereFields[0] = '$whereValues[0]'";
 
-    for($i=1;$i<count($whereFields);$i++) {
+    for ($i = 1; $i < count($whereFields); $i++) {
         $where .= " AND $whereFields[$i] = '$whereValues[$i]'";
     }
 
@@ -148,6 +150,22 @@ function menuExists(string $name, mysqli $connection): bool
     return mysqli_num_rows($result) > 0 ? true : false;
 }
 
+function getApiData(mysqli $connection, string $sql)
+{
+    $data = [];
+    $sql = "SELECT *  FROM statistics";
+
+    $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = $row;
+        }
+    }
+
+    return $data;
+}
+
 /**
  * @param mysqli $connection
  * @return array
@@ -168,6 +186,24 @@ function getCategories(mysqli $connection): array
 
     return $data;
 }
+
+function getStatistics(mysqli $connection): array
+{
+
+    $data = [];
+    $sql = "SELECT *  FROM statistics";
+
+    $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = $row;
+        }
+    }
+
+    return $data;
+}
+
 
 function getRestaurantTables(mysqli $connection): array
 {
@@ -213,7 +249,8 @@ function imageReady(array $image): bool
     return ($image['error'] > 0 or !is_uploaded_file($image['tmp_name']) or exif_imagetype($image['tmp_name']) !== 2) ? false : true;
 }
 
-function deleteMenuCategories($id_menu_category, $connection) {
+function deleteMenuCategories($id_menu_category, $connection)
+{
     $sql = "DELETE FROM menu_categories WHERE id_menu_category = $id_menu_category";
     mysqli_query($connection, $sql) or die(mysqli_error($connection));
 }
