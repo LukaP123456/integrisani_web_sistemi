@@ -1,0 +1,44 @@
+1. install node.js https://nodejs.org/en/download/  LTS
+2. install Expo go on phone, same network
+3. Install Visual Studio Code
+4. https://reactnative.dev/docs/environment-setup
+5. https://reactnative.dev/docs/intro-react-native-components read it and test it
+
+terminal
+npx create-expo-app app2
+
+cd app2
+
+npx expo start
+
+scan qr code with expo go app on phone
+
+edit App.js file
+
+
+you can test your code at https://snack.expo.dev/
+
+6. Test and read all examples https://reactnative.dev/docs/getting-started  
+navigation between screensr
+
+https://reactnative.dev/docs/navigation
+
+https://github.com/callstack/react-native-pager-view
+npx expo install react-native-pager-view@6.0.1
+
+
+https://reactnavigation.org/docs/getting-started
+
+eas build -p android --profile=development --local
+
+https://webhook.site/#!/c2b764f5-8b26-41dc-b4c0-d6f65f63abc0
+
+https://reactnative.dev/docs/network.html
+
+7. Create app https://www.freecodecamp.org/news/how-to-consume-rest-apis-in-react/ 
+8. Create https://github.com/NativeNotify/react-native-to-do-list
+9. Test web message app
+10. Register on Expo.dev
+11. Build APK https://dev.to/chinmaymhatre/how-to-generate-apk-using-react-native-expo-kae
+12. Test APK on phone
+
